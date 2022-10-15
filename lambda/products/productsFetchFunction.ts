@@ -15,5 +15,19 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
     return { statusCode: 200, body: JSON.stringify({ message: 'GET Products - OK' })}
   }
 
+  if (event.resource === '/products/{id}' && method === 'GET') {
+
+    const { id } = event.pathParameters!;
+
+    console.log(`GET product with id ${id}`);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        message: `GET product with id ${id}`
+      })
+    }
+  }
+
   return { statusCode: 400, body: JSON.stringify({ message: "Bad request" }) }
 }
