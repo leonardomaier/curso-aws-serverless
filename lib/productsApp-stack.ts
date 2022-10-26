@@ -67,6 +67,6 @@ export class ProductsAppStack extends cdk.Stack {
       layers: [productsLayer]
     })
 
-    this.productsDb.grantReadWriteData(this.productsAdminHandler)
+    this.productsDb.grantWriteData(this.productsAdminHandler)
   }
 }
